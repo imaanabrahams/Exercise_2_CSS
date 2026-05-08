@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <!-- Header -->
+   <header>
+    <h1>Image Gallery:</h1>
+   </header>
+
+   <!-- Filter Buttons -->
+    <section class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="landscape">Landscapes</button>
+      <button class="filter-btn" data-filter="portrait">Portraits</button>
+      <button class="filter-btn" data-filter="architecture">Architecture</button>
+    </section>
+
+    <!-- Gallery Grid -->
+     <main class="gallery">
+
+      <!-- 12 Image Cards -->
+       <!-- Landscape -->
+        <div class="card" data-category="landscape">
+          <img src="https://via.placeholder.com/300" alt="">
+
+          <div class="overlay">
+            <p>Beautiful Moutain Scenery</p>
+          </div>
+
+          <div class="card-info">
+            <h3>Mountain View</h3>
+            <span>Landscape</span>
+          </div>
+        </div>
+
+        <div class="card" data-category="landscape">
+          <img src="https://via.placeholder.com/300" alt="">
+
+          <div class="overlay">
+            <p>Sunset Over Hills</p>
+          </div>
+
+          <div class="card-info">
+            <h3>Sunset Hills</h3>
+            <span>Landscape</span>
+          </div>
+        </div>
+
+        <div class="card" data-category="landscape">
+          <img src="https://via.placeholder.com/300" alt="">
+
+          <div class="overlay">
+            <p>Ocean Horizon</p>
+          </div>
+
+          <div class="card-info">
+            <h3>Ocean View</h3>
+            <span>Landscape</span>
+          </div>
+        </div>
+
+        <div class="card" data-category="landscape">
+          <img src="https://via.placeholder.com/300" alt="">
+
+          <div class="overlay">
+            <p>Forest Pathway</p>
+          </div>
+
+          <div class="card-info">
+            <h3>Forest Walk</h3>
+            <span>Landscape</span>
+          </div>
+        </div>
+
+        <!-- Portraits -->
+         <div class="card" data-category="portrait">
+          <img src="https://via.placeholder.com/300" alt="">
+
+          <div class="overlay">
+            <p>Creative Portrait Shot</p>
+          </div>
+
+          <div class="card-info">
+            <h3>Portrait 1</h3>
+            <span>Portrait</span>
+          </div>
+         </div>
+
+         <div class="card" data-category="portrait">
+          <img src="https://via.placeholder.com/300" alt="">
+
+          <div class="overlay">
+            <p>Studio lighting portrait</p>
+          </div>
+
+          <div class="card-info">
+            <h3>Portrait 2</h3>
+            <span>Portrait</span>
+          </div>
+         </div>
+
+         <div class="card" data-category="portrait">
+          <img src="https://via.placeholder.com/300" alt="">
+
+          <div class="overlay">
+            <p>Outdoor Portrait</p>
+          </div>
+
+          <div class="card-info">
+            <h3>Portrait 3</h3>
+            <span>Portrait</span>
+          </div>
+         </div>
+
+         <div class="card" data-category="portrait">
+          <img src="https://via.placeholder.com/300" alt="">
+
+          <div class="overlay">
+            <p>Natural Lighting Portrait</p>
+          </div>
+
+          <div class="card-info">
+            <h3>Portrait 4</h3>
+            <span>Portrait</span>
+          </div>
+         </div>
+
+         <!-- Architecture -->
+          <div class="card" data-category="architecture">
+          <img src="https://via.placeholder.com/300" alt="">
+
+          <div class="overlay">
+            <p>Modern Building Design</p>
+          </div>
+
+          <div class="card-info">
+            <h3>Building 1</h3>
+            <span>Architecture</span>
+          </div>
+         </div>
+
+         <div class="card" data-category="architecture">
+          <img src="https://via.placeholder.com/300" alt="">
+
+          <div class="overlay">
+            <p>City Skyline</p>
+          </div>
+
+          <div class="card-info">
+            <h3>City View</h3>
+            <span>Architecture</span>
+          </div>
+         </div>
+
+         <div class="card" data-category="architecture">
+          <img src="https://via.placeholder.com/300" alt="">
+
+          <div class="overlay">
+            <p>Bridge Structure</p>
+          </div>
+
+          <div class="card-info">
+            <h3>Bridge</h3>
+            <span>Architecture</span>
+          </div>
+         </div>
+
+         <div class="card" data-category="architecture">
+          <img src="https://via.placeholder.com/300" alt="">
+
+          <div class="overlay">
+            <p>Historic Monument</p>
+          </div>
+
+          <div class="card-info">
+            <h3>Monument</h3>
+            <span>Architecture</span>
+          </div>
+         </div>
+
+     </main>
+
+     <!-- JavaScript for Filtering -->
+      <script>
+  const buttons = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll(".card");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+      // Remove active class
+      document.querySelector(".active").classList.remove("active");
+      btn.classList.add("active");
+
+      const filter = btn.getAttribute("data-filter");
+
+      cards.forEach(card => {
+        card.classList.add("hide");
+
+        setTimeout(() => {
+          if (filter === "all" || card.dataset.category === filter) {
+            card.classList.remove("hide");
+          }
+        }, 200);
+      });
+
+    });
+  });
+</script>
+
+</body>
+</html>

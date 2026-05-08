@@ -1,0 +1,134 @@
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: Times New Roman, sans-serif;
+  background: #f4f4f4;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: white;
+}
+
+/* Filters (Flexbox) */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px
+}
+
+.filter-btn {
+  padding: 10px 15px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: #bbb;
+}
+
+.filter-btn.active {
+  background: #4CAF50;
+  color: white;
+}
+
+/* Gallery Grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  padding: 20px;
+}
+
+/* Card */
+.card {
+  position: relative;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: white;
+  transition: tranform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hide animation */
+.card.hide {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+/* Image */
+.card img {
+  width: 100%;
+  display: block;
+}
+
+/* Hover effect */
+.card:hover {
+  transform: scale(1.05);
+
+  .overlay{
+    opacity: 1;
+  }
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Card Info (Grid) */
+.card-info {
+  display: grid;
+  gap: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.card-info span {
+  font-size: 0.85em;
+  color: gray;
+}
+
+/* Responsive */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
